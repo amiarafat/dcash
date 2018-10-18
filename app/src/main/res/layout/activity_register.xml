@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".auth.RegisterActivity">
+
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/login_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="28dp"
+            android:src="@drawable/logo_white" />
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewPointBanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        card_view:cardBackgroundColor="@color/ash"
+        card_view:cardCornerRadius="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ash"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="Create New Account"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Name"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Email"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText7"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Password"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/editText8"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Phone Number"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText9"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Date of Birth"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText10"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="City"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText11"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Bkash Transaction ID"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName"/>
+
+                <EditText
+                    android:id="@+id/editText12"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/bg_edittext_focused"
+                    android:ems="10"
+                    android:hint="Referral ID"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_rounded_button"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="Sign Up"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </ScrollView>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

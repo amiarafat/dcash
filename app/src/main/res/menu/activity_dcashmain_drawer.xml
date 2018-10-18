@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Dashboard" />
+
+        <item
+            android:id="@+id/nav_advertisement"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Advertisement" />
+    </group>
+
+    <item android:title="Own">
+        <menu>
+            <item
+                android:id="@+id/nav_browse"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Browse Shop" />
+            <item
+                android:id="@+id/nav_create"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Create Shop" />
+            <item
+                android:id="@+id/nav_myshop"
+                android:icon="@drawable/ic_menu_send"
+                android:title="My Shop" />
+            <item
+                android:id="@+id/nav_mycart"
+                android:icon="@drawable/ic_menu_send"
+                android:title="my Cart" />
+            <item
+                android:id="@+id/nav_cashout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Cashout" />
+            <item
+                android:id="@+id/nav_transaction"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Transaction" />
+        </menu>
+    </item>
+
+
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Profile" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+
+
+</menu>
