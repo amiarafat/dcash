@@ -22,7 +22,10 @@
         <activity android:name=".DCASHMainActivity" />
         <activity android:name=".auth.PaswwordResetActivity" />
         <activity android:name=".auth.RegisterActivity" />
-        <activity android:name=".EarnByInvitingActivity"></activity>
+        <activity android:name=".EarnByInvitingActivity" />
+        <activity android:name=".MyNetworkActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".shop.AddShopActivity"></activity>
     </application>
 
 </manifest>
