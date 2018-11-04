@@ -14,14 +14,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class DCASHMainActivity extends AppCompatActivity
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.example.arafat.dcash.api_config.APIConstants;
+import com.example.arafat.dcash.auth.LoginActivity;
+import com.example.arafat.dcash.extras.BaseActivity;
+import com.example.arafat.dcash.extras.LogMe;
+import com.example.arafat.dcash.shared_pref.UserPref;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.arafat.dcash.api_config.APIConstants.ACCTOKENSTARTER;
+
+public class DCASHMainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    private static final String TAG = "DCASHMainActivity";
     CardView cardEarnByIvite;
 
+    UserPref userPref;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dcashmain);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -42,8 +65,11 @@ public class DCASHMainActivity extends AppCompatActivity
 
     private void initializeView() {
 
+        userPref = new UserPref(DCASHMainActivity.this);
+
         cardEarnByIvite = findViewById(R.id.cardEarnByIvite);
         cardEarnByIvite.setOnClickListener(this);
+
     }
 
     @Override
@@ -98,9 +124,71 @@ public class DCASHMainActivity extends AppCompatActivity
 
         }
 */
+
+       if(id == R.id.nav_logout){
+
+           showProgressDialog();
+           loggingOut();
+       }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void loggingOut() {
+
+        StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.LOGOUT, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                LogMe.d("LoginRes::",response);
+
+                hideProgressDialog();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+
+                    if(jsonObject.has("success")) {
+                        String ApiSuccess = jsonObject.getString("success");
+
+                        if (ApiSuccess == "true") {
+
+                            logout(DCASHMainActivity.this);
+
+                        }
+                    }else {
+
+                        Toast.makeText(getApplicationContext(), "Error Occured: " + jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                hideProgressDialog();
+                LogMe.d(TAG,"er::"+ APIConstants.Auth.LOGOUT);
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
+
+                LogMe.d(TAG,userPref.getUserAccessToken());
+
+                return params;
+            }
+        };
+        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
     }
 
     @Override
