@@ -29,12 +29,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private static final String TAG = "LOGINACTIVITY" ;
     Button btnResetPass, btnRegister;
     Button btnLogin;
     EditText etLoginMail, etLoginPass;
+    View parentLayout;
 
     UserPref userPref;
 
@@ -63,6 +65,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void initializeV() {
 
+        parentLayout = findViewById(android.R.id.content);
         userPref = new UserPref(LoginActivity.this);
 
         btnResetPass = findViewById(R.id.btnResetPass);
@@ -114,8 +117,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
         }else {
 
-            showProgressDialog();
-            dCashLogin(mail,pass);
+            if(isNetworkAvailable()) {
+                showProgressDialog();
+                dCashLogin(mail, pass);
+            }else {
+
+                Snackbar.make(parentLayout, "Please Check your internet connection!!", Snackbar.LENGTH_LONG)
+                        .setAction("CLOSE", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                            }
+                        })
+                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
+                        .show();
+            }
         }
 
     }
@@ -169,6 +185,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     hideProgressDialog();
                 }
             }) {
+
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();

@@ -2,12 +2,14 @@ package com.example.arafat.dcash.profile;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,7 +20,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.arafat.dcash.DCASHMainActivity;
 import com.example.arafat.dcash.DigitalCash;
 import com.example.arafat.dcash.R;
 import com.example.arafat.dcash.api_config.APIConstants;
@@ -34,49 +35,38 @@ import java.util.Map;
 
 import static com.example.arafat.dcash.api_config.APIConstants.ACCTOKENSTARTER;
 
-public class ProfileActivity extends BaseActivity  implements View.OnClickListener {
+public class UserProfileActivity extends BaseActivity  implements View.OnClickListener {
 
-
-    private static final String TAG = "ProfileActivity";
+    Toolbar toolbar_profile;
+    private static final String TAG = "UserProfileActivity";
     Button btnProfileUpdate, btnLogOut;
     EditText etUserName, etUserMobile, etUserEmail, etUserPass, etUSerDateOfBirth;
     UserPref userPref;
 
     ImageView ivFB, ivGoogle, ivTwiter, ivLinkdIn;
     String fbLink,twiterLink,gPlusLingk,linkdInLink;
-    View parentLayout;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_user_profile);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         initializeView();
 
+        getProfileInfo();
 
-        if(isNetworkAvailable()) {
-            getProfileInfo();
-        }else {
-
-            Snackbar.make(parentLayout, "Please Check your internet connection!!", Snackbar.LENGTH_LONG)
-                    .setAction("CLOSE", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                        }
-                    })
-                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
-                    .show();
-        }
     }
-
 
     private void initializeView() {
 
+        toolbar_profile = (Toolbar) findViewById(R.id.toolbar_Profile);
+        setSupportActionBar(toolbar_profile);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         userPref = new UserPref(this);
-        parentLayout = findViewById(android.R.id.content);
 
         btnProfileUpdate = findViewById(R.id.btnProfileUpdate);
         btnLogOut = findViewById(R.id.btnLogOut);
@@ -93,7 +83,6 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
         ivLinkdIn = findViewById(R.id.ivLinkdIn);
 
     }
-
 
     @Override
     public void onClick(View v) {
@@ -131,7 +120,6 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
             loggingOut();
 
         }
-
     }
 
     private void UpdatingProfile() {
@@ -186,10 +174,10 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
                                 etUSerDateOfBirth.setText(DateOfBirth);
                             }
 
-                             fbLink = jUser.getString("facebook");
-                             gPlusLingk = jUser.getString("google_plus");
-                             twiterLink = jUser.getString("twitter");
-                             linkdInLink = jUser.getString("linked_in");
+                            fbLink = jUser.getString("facebook");
+                            gPlusLingk = jUser.getString("google_plus");
+                            twiterLink = jUser.getString("twitter");
+                            linkdInLink = jUser.getString("linked_in");
                             LogMe.d("ProfileRes::",fbLink);
 
                         }
@@ -225,5 +213,22 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
             }
         };
         DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

@@ -25,6 +25,8 @@ import com.example.arafat.dcash.api_config.APIConstants;
 import com.example.arafat.dcash.auth.LoginActivity;
 import com.example.arafat.dcash.extras.BaseActivity;
 import com.example.arafat.dcash.extras.LogMe;
+import com.example.arafat.dcash.profile.ProfileActivity;
+import com.example.arafat.dcash.profile.UserProfileActivity;
 import com.example.arafat.dcash.shared_pref.UserPref;
 
 import org.json.JSONException;
@@ -129,67 +131,22 @@ public class DCASHMainActivity extends BaseActivity
 
            showProgressDialog();
            loggingOut();
+       }else if(id == R.id.nav_profile){
+
+           Intent in =new Intent(this,UserProfileActivity.class);
+           startActivity(in);
        }
+
+
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void loggingOut() {
 
-        StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.LOGOUT, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-
-                LogMe.d("LoginRes::",response);
-
-                hideProgressDialog();
-
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-
-
-                    if(jsonObject.has("success")) {
-                        String ApiSuccess = jsonObject.getString("success");
-
-                        if (ApiSuccess == "true") {
-
-                            logout(DCASHMainActivity.this);
-
-                        }
-                    }else {
-
-                        Toast.makeText(getApplicationContext(), "Error Occured: " + jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                hideProgressDialog();
-                LogMe.d(TAG,"er::"+ APIConstants.Auth.LOGOUT);
-            }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Content-Type", "application/json");
-                params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
-
-                LogMe.d(TAG,userPref.getUserAccessToken());
-
-                return params;
-            }
-        };
-        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
-    }
 
     @Override
     public void onClick(View v) {

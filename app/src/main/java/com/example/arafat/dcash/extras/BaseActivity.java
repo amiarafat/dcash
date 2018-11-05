@@ -14,11 +14,28 @@ import android.support.design.widget.BottomSheetDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.example.arafat.dcash.DCASHMainActivity;
+import com.example.arafat.dcash.DigitalCash;
 import com.example.arafat.dcash.R;
+import com.example.arafat.dcash.api_config.APIConstants;
 import com.example.arafat.dcash.auth.LoginActivity;
 import com.example.arafat.dcash.shared_pref.UserPref;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.arafat.dcash.api_config.APIConstants.ACCTOKENSTARTER;
 
 public class BaseActivity extends LocalizationActivity {
 
@@ -95,5 +112,69 @@ public class BaseActivity extends LocalizationActivity {
         finish();
     }
 
+
+    public void loggingOut() {
+
+        StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.LOGOUT, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                LogMe.d("LoginRes::",response);
+
+                hideProgressDialog();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+
+                    if(jsonObject.has("success")) {
+                        String ApiSuccess = jsonObject.getString("success");
+
+                        if (ApiSuccess == "true") {
+
+                            logout(BaseActivity.this);
+
+                        }
+                    }else {
+
+                        Toast.makeText(getApplicationContext(), "Error Occured: " + jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                hideProgressDialog();
+                LogMe.d(TAG,"er::"+ APIConstants.Auth.LOGOUT);
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", ACCTOKENSTARTER+userPref.getUserAccessToken());
+
+                LogMe.d(TAG,userPref.getUserAccessToken());
+
+                return params;
+            }
+        };
+        DigitalCash.getDigitalCash().addToRequestQueue(request, TAG);
+    }
+
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 }

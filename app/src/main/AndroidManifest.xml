@@ -3,7 +3,7 @@
     package="com.example.arafat.dcash">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".DigitalCash"
@@ -29,7 +29,11 @@
         <activity android:name=".EarnByInvitingActivity" />
         <activity android:name=".MyNetworkActivity" />
         <activity android:name=".profile.ProfileActivity" />
-        <activity android:name=".shop.AddShopActivity"></activity>
+        <activity android:name=".shop.AddShopActivity" />
+        <activity
+            android:name=".profile.UserProfileActivity"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
