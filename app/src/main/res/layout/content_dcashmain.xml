@@ -140,7 +140,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:gravity="center_horizontal"
-                            android:text="Shop amp Earn"
+                            android:text="Shop and Earn"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                             android:textColor="@color/bg_rounded_purple" />
 

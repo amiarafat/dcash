@@ -12,6 +12,7 @@ public class APIConstants {
     public static class Auth {
 
         public static final String LOGIN = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"login";
+        public static final String REGISTER = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"register";
         public static final String TOKEN_REFRESH = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"refresh";
         public static final String USER_PROFILE = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"me";
         public static final String LOGOUT = ENDPOINT + URL_SLASH +"auth"+URL_SLASH+"logout";

@@ -148,36 +148,36 @@ public class UserProfileActivity extends BaseActivity  implements View.OnClickLi
                             String data = jsonObject.getString("data");
                             LogMe.d("ProfileRes::",data);
                             JSONObject jData = new JSONObject(data);
-                            String user = jData.getString("user");
+/*                            String user = jData.getString("user");
                             LogMe.d("ProfileRes::",user);
-                            JSONObject jUser = new JSONObject(user);
+                            JSONObject jUser = new JSONObject(user);*/
 
-                            String UserName= jUser.getString("name");
+                            String UserName= jData.getString("name");
                             LogMe.d("ProfileRes::",UserName);
 
                             if(!TextUtils.isEmpty(UserName)){
                                 etUserName.setText(UserName);
                             }
 
-                            String Mobile = jUser.getString("phone");
+                            String Mobile = jData.getString("phone");
                             if(!TextUtils.isEmpty(Mobile)) {
                                 etUserMobile.setText(Mobile);
                             }
 
-                            String Email = jUser.getString("email");
+                            String Email = jData.getString("email");
                             if(!TextUtils.isEmpty(Email)) {
                                 etUserEmail.setText(Email);
                             }
 
-                            String DateOfBirth = jUser.getString("birthdate");
+                            String DateOfBirth = jData.getString("birthdate");
                             if(!TextUtils.isEmpty(DateOfBirth)) {
                                 etUSerDateOfBirth.setText(DateOfBirth);
                             }
 
-                            fbLink = jUser.getString("facebook");
-                            gPlusLingk = jUser.getString("google_plus");
-                            twiterLink = jUser.getString("twitter");
-                            linkdInLink = jUser.getString("linked_in");
+                            fbLink = jData.getString("facebook");
+                            gPlusLingk = jData.getString("google_plus");
+                            twiterLink = jData.getString("twitter");
+                            linkdInLink = jData.getString("linked_in");
                             LogMe.d("ProfileRes::",fbLink);
 
                         }

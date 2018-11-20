@@ -8,4 +8,10 @@
     <string name="action_settings">Settings</string>
     <string name="loading">Loading...</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
+
+
+    <!--ADMOB STRINGS-->
+    <string name="ADMOB_APP_ID">ca-app-pub-7470896348181474~3905856817</string>
+    <string name="ADMOB_UNIT_ID">ca-app-pub-7470896348181474/2918834935</string>
+    <string name="title_activity_income_factory">IncomeFactory</string>
 </resources>

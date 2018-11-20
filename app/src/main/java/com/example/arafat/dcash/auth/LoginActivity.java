@@ -11,9 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.example.arafat.dcash.DCASHMainActivity;
 import com.example.arafat.dcash.DigitalCash;
@@ -26,6 +29,7 @@ import com.example.arafat.dcash.shared_pref.UserPref;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +57,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void chekPreviousLogedIn() {
 
-        if(TextUtils.isEmpty(userPref.getUserAccessToken())){
+        if(TextUtils.isEmpty(userPref.getUserEmail())){
 
             LogMe.d(TAG,"No info about login");
         }else {
@@ -183,6 +187,53 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
                     hideProgressDialog();
+
+                    NetworkResponse response = error.networkResponse;
+                    if (error instanceof ServerError && response != null) {
+                        try {
+                            String res = new String(response.data,
+                                    HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                            // Now you can use any deserializer to make sense of data
+
+                            int stCode = response.statusCode;
+                            View parentLayout = findViewById(android.R.id.content);
+
+                            if(stCode == 500){
+
+                                Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                        .setAction("CLOSE", new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+
+                                            }
+                                        })
+                                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                        .show();
+                            }else {
+                                LogMe.d("er::", res);
+                                JSONObject obj = new JSONObject(res);
+
+                                String errMsg = obj.getString("message");
+
+                                Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
+                                        .setAction("CLOSE", new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+
+                                            }
+                                        })
+                                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                        .show();
+                            }
+
+                        } catch (UnsupportedEncodingException e1) {
+                            // Couldn't properly decode data to string
+                            e1.printStackTrace();
+                        } catch (JSONException e2) {
+                            // returned data is not JSONObject?
+                            e2.printStackTrace();
+                        }
+                    }
                 }
             }) {
 

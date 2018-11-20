@@ -14,9 +14,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.example.arafat.dcash.DCASHMainActivity;
 import com.example.arafat.dcash.DigitalCash;
@@ -29,6 +32,7 @@ import com.example.arafat.dcash.shared_pref.UserPref;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -160,36 +164,36 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
                             String data = jsonObject.getString("data");
                             LogMe.d("ProfileRes::",data);
                             JSONObject jData = new JSONObject(data);
-                            String user = jData.getString("user");
+                            /*String user = jData.getString("user");
                             LogMe.d("ProfileRes::",user);
                             JSONObject jUser = new JSONObject(user);
-
-                            String UserName= jUser.getString("name");
+*/
+                            String UserName= jData.getString("name");
                             LogMe.d("ProfileRes::",UserName);
 
                             if(!TextUtils.isEmpty(UserName)){
                                 etUserName.setText(UserName);
                             }
 
-                            String Mobile = jUser.getString("phone");
+                            String Mobile = jData.getString("phone");
                             if(!TextUtils.isEmpty(Mobile)) {
                                 etUserMobile.setText(Mobile);
                             }
 
-                            String Email = jUser.getString("email");
+                            String Email = jData.getString("email");
                             if(!TextUtils.isEmpty(Email)) {
                                 etUserEmail.setText(Email);
                             }
 
-                            String DateOfBirth = jUser.getString("birthdate");
+                            String DateOfBirth = jData.getString("birthdate");
                             if(!TextUtils.isEmpty(DateOfBirth)) {
                                 etUSerDateOfBirth.setText(DateOfBirth);
                             }
 
-                             fbLink = jUser.getString("facebook");
-                             gPlusLingk = jUser.getString("google_plus");
-                             twiterLink = jUser.getString("twitter");
-                             linkdInLink = jUser.getString("linked_in");
+                             fbLink = jData.getString("facebook");
+                             gPlusLingk = jData.getString("google_plus");
+                             twiterLink = jData.getString("twitter");
+                             linkdInLink = jData.getString("linked_in");
                             LogMe.d("ProfileRes::",fbLink);
 
                         }
@@ -210,6 +214,53 @@ public class ProfileActivity extends BaseActivity  implements View.OnClickListen
                 error.printStackTrace();
                 hideProgressDialog();
                 LogMe.d(TAG,"er::"+ APIConstants.Auth.USER_PROFILE);
+
+                NetworkResponse response = error.networkResponse;
+                if (error instanceof ServerError && response != null) {
+                    try {
+                        String res = new String(response.data,
+                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                        // Now you can use any deserializer to make sense of data
+
+                        int stCode = response.statusCode;
+                        View parentLayout = findViewById(android.R.id.content);
+
+                        if (stCode == 500) {
+
+                            Snackbar.make(parentLayout, "Server Error! Please try again later", Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        } else {
+                            LogMe.d("er::", res);
+                            JSONObject obj = new JSONObject(res);
+
+                            String errMsg = obj.getString("message");
+
+                            Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
+                                    .setAction("CLOSE", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+
+                                        }
+                                    })
+                                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                                    .show();
+                        }
+
+                    } catch (UnsupportedEncodingException e1) {
+                        // Couldn't properly decode data to string
+                        e1.printStackTrace();
+                    } catch (JSONException e2) {
+                        // returned data is not JSONObject?
+                        e2.printStackTrace();
+                    }
+                }
             }
         }) {
             @Override

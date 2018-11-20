@@ -8,6 +8,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.arafat.dcash.extras.LogMe;
+import com.google.android.gms.ads.MobileAds;
 
 public class DigitalCash extends Application {
 
@@ -29,6 +30,7 @@ public class DigitalCash extends Application {
         super.onCreate();
         context = getApplicationContext();
         dCash=this;
+
     }
 
 

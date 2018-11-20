@@ -29,163 +29,158 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        card_view:cardBackgroundColor="@color/ash"
         card_view:cardCornerRadius="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/login_bg">
 
             <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scView">
-
-            <LinearLayout
+                android:id="@+id/scView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/ash"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView4"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:text="Create New Account"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/editText4"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="Create New Account"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
 
-                <EditText
-                    android:id="@+id/editText6"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Email"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/etRName"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText7"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Password"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPassword" />
+                    <EditText
+                        android:id="@+id/etREmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Email"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText8"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Phone Number"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/etRPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText9"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Date of Birth"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/etRPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:text="880"
+                        android:hint="Phone Number"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText10"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="City"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/etRDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Date of Birth"
+                        android:inputType="date"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText11"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Bkash Transaction ID"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName"/>
+                    <EditText
+                        android:id="@+id/etRCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="City"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <EditText
-                    android:id="@+id/editText12"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
-                    android:background="@drawable/bg_edittext_focused"
-                    android:ems="10"
-                    android:hint="Referral ID"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/etRBikash"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Bkash Transaction ID"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/bg_rounded_button"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text="Sign Up"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </ScrollView>
+                    <EditText
+                        android:id="@+id/etRReferral"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/bg_edittext_focused"
+                        android:ems="10"
+                        android:hint="Referral ID"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                    <Button
+                        android:id="@+id/btnSignUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                        android:text="Signup" />
+
+                </LinearLayout>
+            </ScrollView>
 
         </RelativeLayout>
 
