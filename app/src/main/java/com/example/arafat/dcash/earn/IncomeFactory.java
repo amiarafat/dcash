@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +21,11 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 public class IncomeFactory extends AppCompatActivity implements RewardedVideoAdListener{
 
+    //VIDEO WALL
     RewardedVideoAd rAdd;
-
     private RewardedVideoAd mRewardedVideoAd;
+    ImageView ivVideoWall;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +34,30 @@ public class IncomeFactory extends AppCompatActivity implements RewardedVideoAdL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //TEST APP ID
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        initializeView();
 
-        //LIVE APP ID
-        //MobileAds.initialize(this, "ca-app-pub-7470896348181474~3905856817");
+        ivVideoWall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //TEST APP ID
+                MobileAds.initialize(IncomeFactory.this, "ca-app-pub-3940256099942544~3347511713");
+
+                //LIVE APP ID
+                //MobileAds.initialize(IncomeFactory.this, "ca-app-pub-7470896348181474~3905856817");
 
 
-        // Use an activity context to get the rewarded video instance.
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
+                mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(IncomeFactory.this);
+                mRewardedVideoAd.setRewardedVideoAdListener(IncomeFactory.this);
 
-        loadRewardedVideoAd();
+                loadRewardedVideoAd();
+            }
+        });
+    }
+
+    private void initializeView(){
+
+        ivVideoWall = findViewById(R.id.ivVideoWall);
 
     }
 
@@ -116,19 +131,21 @@ public class IncomeFactory extends AppCompatActivity implements RewardedVideoAdL
 
     @Override
     public void onResume() {
-        mRewardedVideoAd.resume(this);
+//        mRewardedVideoAd.resume(this);
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        mRewardedVideoAd.pause(this);
+//        mRewardedVideoAd.pause(this);
         super.onPause();
     }
 
     @Override
     public void onDestroy() {
-        mRewardedVideoAd.destroy(this);
+  //      mRewardedVideoAd.destroy(this);
         super.onDestroy();
     }
+
+
 }

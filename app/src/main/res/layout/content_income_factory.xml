@@ -7,5 +7,94 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".earn.IncomeFactory"
     tools:showIn="@layout/activity_income_factory">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        
+        
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/ivVideoWall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/videowall"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/ivFBWall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fbwall"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/ivYoutubeWall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/youtubewall"/>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/ivLookandEarn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/lookandearn"/>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/ivOfferWall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/offerwall"/>
+
+        </android.support.v7.widget.CardView>
+
+        
+    </LinearLayout>
 
 </RelativeLayout>

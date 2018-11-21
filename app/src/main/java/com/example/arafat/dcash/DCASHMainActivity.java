@@ -98,11 +98,12 @@ public class DCASHMainActivity extends BaseActivity
                                 String Name = jObj.getString("name");
                                 String Email = jObj.getString("email");
                                 String AvailableBalance = jObj.getString("available_balance");
-                                String EarningBalance = jObj.getString("");
+                                String EarningBalance = jObj.getString("earning_balance");
 
                                 tvUserNmae.setText(Name);
                                 tvuserEmail.setText(Email);
                                 tvUserAvailableBalance.setText(AvailableBalance);
+                                tvUserEarningBalance.setText(EarningBalance);
 
                                 /*String data = jsonObject.getString("data");
                                 LogMe.d("ProfileRes::",data);
