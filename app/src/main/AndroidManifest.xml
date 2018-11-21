@@ -37,14 +37,22 @@
         <activity
             android:name=".earn.IncomeFactory"
             android:label="@string/title_activity_income_factory"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
 
         <!-- Sample TEST AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- Sample LIVE AdMob App ID: ca-app-pub-7470896348181474~3905856817 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3940256099942544~3347511713" />
 
+        <activity
+            android:name=".earn.VideoWallActivity"
+            android:label="@string/title_activity_video_wall"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".earn.FBWallActivity"
+            android:label="@string/title_activity_fbwall"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DCASH</string>
+    <string name="app_name">DIGITAL CASH</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -14,4 +14,6 @@
     <string name="ADMOB_APP_ID">ca-app-pub-7470896348181474~3905856817</string>
     <string name="ADMOB_UNIT_ID">ca-app-pub-7470896348181474/2918834935</string>
     <string name="title_activity_income_factory">IncomeFactory</string>
+    <string name="title_activity_video_wall">VideoWallActivity</string>
+    <string name="title_activity_fbwall">FBWallActivity</string>
 </resources>

@@ -32,5 +32,7 @@ dependencies {
     implementation 'com.akexorcist:localizationactivity:1.2.2'
     implementation 'com.squareup.okhttp:okhttp:2.5.0'
     implementation 'com.google.android.gms:play-services-ads:17.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.facebook.android:audience-network-sdk:5.+'
 
 }
