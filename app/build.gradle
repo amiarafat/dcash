@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.arafat.dcash"
+        applicationId "com.xyz.digital_cash.dcash"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.04"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,6 +33,6 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.5.0'
     implementation 'com.google.android.gms:play-services-ads:17.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-    compile 'com.facebook.android:audience-network-sdk:5.+'
-
+    implementation 'com.facebook.android:audience-network-sdk:5.+'
+    implementation  'cn.pedant.sweetalert:library:1.3'
 }

@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.arafat.dcash">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.xyz.digital_cash.dcash">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".DigitalCash"
+        tools:replace="android:icon"
+        android:name="com.xyz.digital_cash.dcash.DigitalCash"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".auth.LoginActivity"
+            android:name="com.xyz.digital_cash.dcash.auth.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,34 +27,41 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DCASHMainActivity" />
-        <activity android:name=".auth.PaswwordResetActivity" />
-        <activity android:name=".auth.RegisterActivity" />
-        <activity android:name=".EarnByInvitingActivity" />
-        <activity android:name=".MyNetworkActivity" />
-        <activity android:name=".profile.ProfileActivity" />
-        <activity android:name=".shop.AddShopActivity" />
+        <activity android:name="com.xyz.digital_cash.dcash.DCASHMainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.xyz.digital_cash.dcash.auth.PaswwordResetActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.xyz.digital_cash.dcash.auth.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.xyz.digital_cash.dcash.EarnByInvitingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.xyz.digital_cash.dcash.MyNetworkActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.xyz.digital_cash.dcash.shop.AddShopActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".profile.UserProfileActivity"
+            android:name="com.xyz.digital_cash.dcash.profile.UserProfileActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.IncomeFactory"
+            android:name="com.xyz.digital_cash.dcash.earn.IncomeFactory"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_income_factory"
             android:theme="@style/AppTheme" />
 
         <!-- Sample TEST AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-        <!-- Sample LIVE AdMob App ID: ca-app-pub-7470896348181474~3905856817 -->
+        <!-- Sample LIVE AdMob App ID: ca-app-pub-8456560515447750~2322879071 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-8456560515447750~2322879071" />
 
         <activity
-            android:name=".earn.VideoWallActivity"
+            android:name="com.xyz.digital_cash.dcash.earn.VideoWallActivity"
             android:label="@string/title_activity_video_wall"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".earn.FBWallActivity"
+            android:name="com.xyz.digital_cash.dcash.earn.FBWallActivity"
             android:label="@string/title_activity_fbwall"
             android:theme="@style/AppTheme"></activity>
     </application>
