@@ -7,18 +7,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        tools:replace="android:icon"
-        android:name="com.xyz.digital_cash.dcash.DigitalCash"
+        android:name=".DigitalCash"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
-        android:hardwareAccelerated="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
-            android:name="com.xyz.digital_cash.dcash.auth.LoginActivity"
+            android:name=".auth.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,43 +27,69 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.xyz.digital_cash.dcash.DCASHMainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.xyz.digital_cash.dcash.auth.PaswwordResetActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.xyz.digital_cash.dcash.auth.RegisterActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.xyz.digital_cash.dcash.EarnByInvitingActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.xyz.digital_cash.dcash.MyNetworkActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.xyz.digital_cash.dcash.shop.AddShopActivity"
+        <activity
+            android:name=".DCASHMainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.xyz.digital_cash.dcash.profile.UserProfileActivity"
-            android:screenOrientation="portrait"
+            android:name=".auth.PaswwordResetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EarnByInvitingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyNetworkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".shop.AddShopActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profile.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.xyz.digital_cash.dcash.earn.IncomeFactory"
-            android:screenOrientation="portrait"
+            android:name=".earn.IncomeFactory"
             android:label="@string/title_activity_income_factory"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <!-- Sample TEST AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- Sample LIVE AdMob App ID: ca-app-pub-8456560515447750~2322879071 -->
+        <!-- Sample LIVE AdMob App ID: ca-app-pub-7470896348181474~3905856817 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8456560515447750~2322879071" />
+            android:value="ca-app-pub-7470896348181474~3905856817" />
 
         <activity
-            android:name="com.xyz.digital_cash.dcash.earn.VideoWallActivity"
+            android:name=".earn.VideoWallActivity"
             android:label="@string/title_activity_video_wall"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.xyz.digital_cash.dcash.earn.FBWallActivity"
+            android:name=".earn.FBWallActivity"
             android:label="@string/title_activity_fbwall"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".earn.LookEarnActivity"
+            android:label="@string/title_activity_look_earn"
             android:theme="@style/AppTheme"></activity>
+
+        <activity android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"/>
+
+        <activity android:name="com.adcolony.sdk.AdColonyAdViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"/>
+
+
+
+        <meta-data android:name="applovin.sdk.key"
+            android:value="5784r5ZmxSPrnKKKy6sxC4kdrV6DJtMOhnDefo_TD1LMXHPdnoDraAWsCI55gliwlAe7rGR_6JNEfgS9ZzOGbd"  />
+        <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" android:configChanges="orientation|screenSize"/>
     </application>
 
 </manifest>

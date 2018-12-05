@@ -1,8 +1,11 @@
 package com.xyz.digital_cash.dcash.auth;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -210,9 +213,9 @@ public class RegisterActivity extends BaseActivity {
                         LogMe.d("er::",res);
                         JSONObject obj = new JSONObject(res);
 
-                        String errMsg  = obj.getString("message");
+                        String errMsg  = obj.getString("data");
                         View parentLayout = findViewById(android.R.id.content);
-                        Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
+                       /* Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
                                 .setAction("CLOSE", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -220,6 +223,22 @@ public class RegisterActivity extends BaseActivity {
                                     }
                                 })
                                 .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
+                                .show();*/
+
+                        AlertDialog.Builder builder;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            builder = new AlertDialog.Builder(RegisterActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                        } else {
+                            builder = new AlertDialog.Builder(RegisterActivity.this);
+                        }
+                        builder.setTitle("ALERT!!!")
+                                .setMessage(errMsg)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // continue with delete
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
                                 .show();
 
                     } catch (UnsupportedEncodingException e1) {

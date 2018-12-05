@@ -7,7 +7,10 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".earn.IncomeFactory"
     tools:showIn="@layout/activity_income_factory">
-    
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -96,5 +99,8 @@
 
         
     </LinearLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>

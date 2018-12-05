@@ -49,7 +49,7 @@ public class DCASHMainActivity extends BaseActivity
     CardView cardIncomeFactory;
     NavigationView navigationView;
 
-    TextView tvUserNmae, tvuserEmail, tvUserAvailableBalance,tvUserEarningBalance;
+    TextView tvUserNmae, tvuserEmail,tvUserReferral, tvUserAvailableBalance,tvUserEarningBalance;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,11 +97,13 @@ public class DCASHMainActivity extends BaseActivity
 
                                 String Name = jObj.getString("name");
                                 String Email = jObj.getString("email");
+                                String Referral = jObj.getString("referral_link");
                                 String AvailableBalance = jObj.getString("available_balance");
                                 String EarningBalance = jObj.getString("earning_balance");
 
                                 tvUserNmae.setText(Name);
                                 tvuserEmail.setText(Email);
+                                tvUserReferral.setText("R/F : "+Referral);
                                 tvUserAvailableBalance.setText(AvailableBalance +"BDT");
                                 tvUserEarningBalance.setText(EarningBalance+ " BDT");
                                 userPref.setUserEarningBalance(EarningBalance);
@@ -202,6 +204,7 @@ public class DCASHMainActivity extends BaseActivity
 
         tvUserNmae = headerView.findViewById(R.id.tvUserName);
         tvuserEmail = headerView.findViewById(R.id.tvUserEmail);
+        tvUserReferral = headerView.findViewById(R.id.tvUserReferral);
         tvUserAvailableBalance = headerView.findViewById(R.id.tvUserCurrentBalance);
         tvUserEarningBalance = headerView.findViewById(R.id.tvUserEarningBalance);
 

@@ -17,8 +17,7 @@ public class IncomeFactory extends AppCompatActivity {
 
     Toolbar toolbar_income_factory;
 
-    ImageView ivVideoWall;
-    ImageView ivFbWall;
+    ImageView ivVideoWall,ivFbWall,ivLookEarn;
 
 
 
@@ -49,6 +48,15 @@ public class IncomeFactory extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        ivLookEarn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in =new Intent(IncomeFactory.this, LookEarnActivity.class);
+                startActivity(in);
+
+            }
+        });
     }
 
 
@@ -62,6 +70,7 @@ public class IncomeFactory extends AppCompatActivity {
 
         ivVideoWall = findViewById(R.id.ivVideoWall);
         ivFbWall = findViewById(R.id.ivFBWall);
+        ivLookEarn = findViewById(R.id.ivLookandEarn);
 
     }
 

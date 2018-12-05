@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.applovin.sdk.AppLovinSdk;
 import com.xyz.digital_cash.dcash.extras.LogMe;
 
 public class DigitalCash extends Application {
@@ -29,6 +30,7 @@ public class DigitalCash extends Application {
         super.onCreate();
         context = getApplicationContext();
         dCash=this;
+        AppLovinSdk.initializeSdk(context);
 
     }
 

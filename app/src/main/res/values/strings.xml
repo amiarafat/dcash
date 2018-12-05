@@ -16,4 +16,5 @@
     <string name="title_activity_income_factory">IncomeFactory</string>
     <string name="title_activity_video_wall">VideoWallActivity</string>
     <string name="title_activity_fbwall">FBWallActivity</string>
+    <string name="title_activity_look_earn">LookEarnActivity</string>
 </resources>
