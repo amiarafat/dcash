@@ -147,7 +147,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
         btnAppLovin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playRewarded();
+                playAppLovinRewarded();
             }
         });
     }
@@ -281,7 +281,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
         //Toast.makeText(this, "onRewarded! currency: " + rewardItem.getType() + "  amount: " + rewardItem.getAmount(), Toast.LENGTH_SHORT).show();
         // Reward the user.
 
-        getAdmobRewarded();
+        getVideoRewarded();
     }
 
 
@@ -347,7 +347,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
 
     }
 
-    public void playRewarded(){
+    public void playAppLovinRewarded(){
         // Check to see if a rewarded video is available.
         if(myIncent.isAdReadyToDisplay()){
             // A rewarded video is available.  Call the show method with the listeners you want to use.
@@ -356,6 +356,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
                 @Override
                 public void adDisplayed(AppLovinAd appLovinAd) {
                     // A rewarded video is being displayed.
+                    getVideoRewarded();
                 }
                 @Override
                 public void adHidden(AppLovinAd appLovinAd) {
@@ -367,6 +368,21 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
         }
         else{
             // No ad is currently available.  Perform failover logic...
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(VideoWallActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(VideoWallActivity.this);
+            }
+            builder.setTitle("ALERT!!!")
+                    .setMessage("No Ad is in Inventory")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
     }
 
@@ -421,7 +437,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
 
 
 
-    private void getAdmobRewarded() {
+    private void getVideoRewarded() {
 
 
         StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Reward.VIDEOREWARD, new Response.Listener<String>() {
