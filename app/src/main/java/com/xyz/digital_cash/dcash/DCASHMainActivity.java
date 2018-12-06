@@ -278,7 +278,12 @@ public class DCASHMainActivity extends BaseActivity
         return true;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        tvUserEarningBalance.setText(userPref.getUserEarningBalance()+ " BDT");
+    }
 
     @Override
     public void onClick(View v) {

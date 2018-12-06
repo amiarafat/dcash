@@ -84,12 +84,14 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:hardwareAccelerated="true"/>
 
-
-
         <meta-data android:name="applovin.sdk.key"
             android:value="5784r5ZmxSPrnKKKy6sxC4kdrV6DJtMOhnDefo_TD1LMXHPdnoDraAWsCI55gliwlAe7rGR_6JNEfgS9ZzOGbd"  />
         <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" android:configChanges="orientation|screenSize"/>
         <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" android:configChanges="orientation|screenSize"/>
+
+
+        <activity android:name="com.facebook.ads.AudienceNetworkActivity" android:hardwareAccelerated="true"/>
+
     </application>
 
 </manifest>

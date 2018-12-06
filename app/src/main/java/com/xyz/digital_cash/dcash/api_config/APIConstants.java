@@ -20,7 +20,8 @@ public class APIConstants {
 
     public static class Reward{
 
-        public static final String ADMOBREWARD = ENDPOINT + URL_SLASH +"rewards"+URL_SLASH+"admob";
+        public static final String VIDEOREWARD = ENDPOINT + URL_SLASH +"rewards"+URL_SLASH+"video";
+        public static final String INTERSTIALREWARD = ENDPOINT + URL_SLASH +"rewards"+URL_SLASH+"interstitial";
 
 
     }

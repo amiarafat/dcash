@@ -424,7 +424,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
     private void getAdmobRewarded() {
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Reward.ADMOBREWARD, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Reward.VIDEOREWARD, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -446,6 +446,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
                             JSONObject jData = new JSONObject(data);
                             String EarningBalance = jData.getString("earning_balance");
 
+                            userPref.setUserEarningBalance(EarningBalance);
                             tvVideoWallEBalance.setText(EarningBalance +" BDT");
 
 

@@ -42,6 +42,22 @@
             app:cardCornerRadius="16dp">
 
             <ImageView
+                android:id="@+id/ivLookandEarn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/lookandearn"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
                 android:id="@+id/ivFBWall"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -65,22 +81,6 @@
 
         </android.support.v7.widget.CardView>
 
-
-        <android.support.v7.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            app:cardMaxElevation="8dp"
-            app:cardCornerRadius="16dp">
-
-            <ImageView
-                android:id="@+id/ivLookandEarn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/lookandearn"/>
-
-        </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
             android:layout_width="300dp"
             android:layout_height="200dp"

@@ -38,5 +38,5 @@ dependencies {
     implementation 'com.adcolony:sdk:3.3.6'
     implementation 'com.google.ads.mediation:adcolony:3.3.5.1'
     implementation "com.applovin:applovin-sdk:+"
-
+    implementation 'com.facebook.android:audience-network-sdk:5.+'
 }
