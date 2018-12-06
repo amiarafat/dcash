@@ -116,7 +116,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
         //MobileAds.initialize(VideoWallActivity.this, "ca-app-pub-3940256099942544~3347511713");
         //LIVE APP ID
         //MobileAds.initialize(VideoWallActivity.this, "ca-app-pub-8456560515447750~2322879071");
-        MobileAds.initialize(VideoWallActivity.this, "ca-app-pub-7470896348181474~3905856817");
+        MobileAds.initialize(VideoWallActivity.this, "ca-app-pub-8456560515447750~2322879071");
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(VideoWallActivity.this);
         mRewardedVideoAd.setRewardedVideoAdListener(VideoWallActivity.this);
 
@@ -342,7 +342,8 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
 
         //LIVE APP UNIT ID
         //mRewardedVideoAd.loadAd("ca-app-pub-8456560515447750/1978164068",new AdRequest.Builder().build());
-        mRewardedVideoAd.loadAd("ca-app-pub-7470896348181474/6306464882",new AdRequest.Builder().build());
+        //mRewardedVideoAd.loadAd("ca-app-pub-8456560515447750/7512100306",new AdRequest.Builder().build());
+        mRewardedVideoAd.loadAd("ca-app-pub-8456560515447750/7512100306",new AdRequest.Builder().build());
 
 
     }

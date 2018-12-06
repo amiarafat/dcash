@@ -301,13 +301,13 @@ public class LookEarnActivity extends BaseActivity {
         //MobileAds.initialize(LookEarnActivity.this,"ca-app-pub-3940256099942544~3347511713");
 
         //For Live run
-        MobileAds.initialize(LookEarnActivity.this,"ca-app-pub-7470896348181474~3905856817");
+        MobileAds.initialize(LookEarnActivity.this,"ca-app-pub-8456560515447750~2322879071");
         mInterstitialAdmobAd = new InterstitialAd(LookEarnActivity.this);
         //For Test Run
         //mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
         //For Live Run
-        mInterstitialAdmobAd.setAdUnitId("ca-app-pub-7470896348181474/6960731692");
+        mInterstitialAdmobAd.setAdUnitId("ca-app-pub-8456560515447750/4494096867");
         btnAdmobInterstial = findViewById(R.id.btnAdmobInterstial);
         btnAppLovinInterstial = findViewById(R.id.btnAppLovinInterstial);
 
