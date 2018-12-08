@@ -1,5 +1,6 @@
 package com.xyz.digital_cash.dcash.auth;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -9,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.android.volley.NetworkResponse;
@@ -30,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
 public class RegisterActivity extends BaseActivity {
 
@@ -41,14 +44,30 @@ public class RegisterActivity extends BaseActivity {
     Button btnRegister;
     private UserPref userPref;
 
+
+    Calendar myCalender;
+    DatePickerDialog.OnDateSetListener date;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-
         initializeValue();
 
+
+        date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                LogMe.d("mo::", month + "--" + year + "--" + dayOfMonth);
+
+                myCalender.set(Calendar.YEAR, year);
+                myCalender.set(Calendar.MONTH, month);
+                myCalender.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                updateView(year, month + 1, dayOfMonth);
+            }
+        };
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,17 +78,29 @@ public class RegisterActivity extends BaseActivity {
 
             }
         });
+
+        etDOB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new DatePickerDialog(RegisterActivity.this, date, myCalender
+                        .get(Calendar.YEAR), myCalender.get(Calendar.MONTH),
+                        myCalender.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
     }
 
     private void initializeValue() {
 
         userPref = new UserPref(this);
+        myCalender = Calendar.getInstance();
 
         etName = findViewById(R.id.etRName);
         etEmail = findViewById(R.id.etREmail);
         etPass = findViewById(R.id.etRPass);
         etPhone = findViewById(R.id.etRPhone);
         etDOB = findViewById(R.id.etRDOB);
+        etDOB.setFocusable(false);
         etCity = findViewById(R.id.etRCity);
         etBikash = findViewById(R.id.etRBikash);
         etRefferal = findViewById(R.id.etRReferral);
@@ -77,6 +108,27 @@ public class RegisterActivity extends BaseActivity {
         btnRegister =findViewById(R.id.btnSignUp);
 
     }
+
+    private void updateView(int y, int m, int d) {
+
+        String month = "", day = "";
+
+
+            if (m < 10) {
+                month = "0" + m;
+            } else {
+                month = "" + m;
+            }
+
+            if (d < 10) {
+                day = "0" + d;
+            } else {
+                day = "" + d;
+            }
+            etDOB.setText(y + "-" + month + "-" + day);
+
+    }
+
 
     private void prepareforRegister() {
 
