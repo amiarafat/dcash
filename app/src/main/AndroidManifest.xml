@@ -74,24 +74,37 @@
         <activity
             android:name=".earn.LookEarnActivity"
             android:label="@string/title_activity_look_earn"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.adcolony.sdk.AdColonyAdViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="5784r5ZmxSPrnKKKy6sxC4kdrV6DJtMOhnDefo_TD1LMXHPdnoDraAWsCI55gliwlAe7rGR_6JNEfgS9ZzOGbd" />
+
+        <activity
+            android:name="com.applovin.adview.AppLovinInterstitialActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.applovin.adview.AppLovinConfirmationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.facebook.ads.AudienceNetworkActivity"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".earn.FlurryMainActivity"
+            android:label="@string/title_activity_flurry_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".earn.FlurryInterstitialOnExitActivity"
+            android:label="@string/title_activity_flurry_interstitial_on_exit"
             android:theme="@style/AppTheme"></activity>
-
-        <activity android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:hardwareAccelerated="true"/>
-
-        <activity android:name="com.adcolony.sdk.AdColonyAdViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:hardwareAccelerated="true"/>
-
-        <meta-data android:name="applovin.sdk.key"
-            android:value="5784r5ZmxSPrnKKKy6sxC4kdrV6DJtMOhnDefo_TD1LMXHPdnoDraAWsCI55gliwlAe7rGR_6JNEfgS9ZzOGbd"  />
-        <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" android:configChanges="orientation|screenSize"/>
-        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" android:configChanges="orientation|screenSize"/>
-
-
-        <activity android:name="com.facebook.ads.AudienceNetworkActivity" android:hardwareAccelerated="true"/>
-
     </application>
 
 </manifest>

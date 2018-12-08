@@ -17,4 +17,7 @@
     <string name="title_activity_video_wall">VideoWallActivity</string>
     <string name="title_activity_fbwall">FBWallActivity</string>
     <string name="title_activity_look_earn">LookEarnActivity</string>
+    <string name="title_activity_flurry_main">FlurryMainActivity</string>
+    <string name="title_activity_flurry_interstitial_on_exit">FlurryInterstitialOnExitActivity
+    </string>
 </resources>

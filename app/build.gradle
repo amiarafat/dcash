@@ -39,4 +39,11 @@ dependencies {
     implementation 'com.google.ads.mediation:adcolony:3.3.5.1'
     implementation "com.applovin:applovin-sdk:+"
     implementation 'com.facebook.android:audience-network-sdk:5.+'
+
+    // Recommended to add Google Play Services
+    implementation 'com.google.android.gms:play-services-ads:16.1.1'
+    // Required for Flurry Analytics integration
+    implementation 'com.flurry.android:analytics:11.4.0@aar'
+    // Optional - If you want to use the Ads SDK
+    implementation 'com.flurry.android:ads:11.4.0@aar'
 }

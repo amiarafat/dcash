@@ -1,6 +1,7 @@
 package com.xyz.digital_cash.dcash.earn;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -55,7 +56,7 @@ import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER
 
 public class LookEarnActivity extends BaseActivity {
 
-    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial;
+    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial;
     private InterstitialAd mInterstitialAdmobAd;
     private Toolbar toolbar_video_wall;
     UserPref userPref;
@@ -284,6 +285,16 @@ public class LookEarnActivity extends BaseActivity {
             }
         });
 
+
+        btnFlurryInterstial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in =new Intent(LookEarnActivity.this,FlurryMainActivity.class);
+                startActivity(in);
+            }
+        });
+
     }
 
     private void initializeView() {
@@ -315,6 +326,8 @@ public class LookEarnActivity extends BaseActivity {
         //FACEEBOOK AUDIANCE
         btnFacebookInterstial = findViewById(R.id.btnFacebookInterstial);
         interstitialFacebookAd = new com.facebook.ads.InterstitialAd(this, PLACEMENT_ID);
+
+        btnFlurryInterstial= findViewById(R.id.btnFlurryInterstial);
     }
 
     @Override

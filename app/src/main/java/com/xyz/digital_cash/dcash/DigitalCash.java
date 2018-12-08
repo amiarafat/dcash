@@ -3,11 +3,13 @@ package com.xyz.digital_cash.dcash;
 import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.applovin.sdk.AppLovinSdk;
+import com.flurry.android.FlurryAgent;
 import com.xyz.digital_cash.dcash.extras.LogMe;
 
 public class DigitalCash extends Application {
@@ -31,6 +33,14 @@ public class DigitalCash extends Application {
         context = getApplicationContext();
         dCash=this;
         AppLovinSdk.initializeSdk(context);
+
+
+        FlurryAgent.setLogEnabled(true);
+        FlurryAgent.setLogLevel(Log.VERBOSE);
+        FlurryAgent.setLogEvents(true);
+        // NOTE: Use your own Flurry API key. This is left here to make sample review easier
+        FlurryAgent.init(this, "5GS9QJPJX5F3DDT8527Z");
+        Log.i(TAG, "Flurry SDK initialized");
 
     }
 
