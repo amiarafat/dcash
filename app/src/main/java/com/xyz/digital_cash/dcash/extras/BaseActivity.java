@@ -2,13 +2,16 @@ package com.xyz.digital_cash.dcash.extras;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
@@ -21,6 +24,7 @@ import com.xyz.digital_cash.dcash.DigitalCash;
 import com.xyz.digital_cash.dcash.R;
 import com.xyz.digital_cash.dcash.api_config.APIConstants;
 import com.xyz.digital_cash.dcash.auth.LoginActivity;
+import com.xyz.digital_cash.dcash.earn.VideoWallActivity;
 import com.xyz.digital_cash.dcash.shared_pref.UserPref;
 
 import org.json.JSONException;
@@ -171,4 +175,22 @@ public class BaseActivity extends LocalizationActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    public void underConstruction(){
+
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(BaseActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(BaseActivity.this);
+        }
+        builder.setTitle("ALERT!!!")
+                .setMessage("This item is under construction now. Will be available soon!")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
 }

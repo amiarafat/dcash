@@ -1,7 +1,7 @@
 package com.xyz.digital_cash.dcash.extras;
 
 public class LogMe {
-    static final boolean LOG = true;
+    static final boolean LOG = false;
 
     public static void i(String tag, String string) {
         if (LOG) android.util.Log.i(tag, string);

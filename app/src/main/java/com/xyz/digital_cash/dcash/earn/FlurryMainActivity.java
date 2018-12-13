@@ -34,12 +34,16 @@ public class FlurryMainActivity extends AppCompatActivity {
     FlurryAdInterstitial mFlurryAdInterstitial;
     private final static String TAG = FlurryMainActivity.class.getSimpleName();
 
+    Toolbar toolbar_flurry_activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flurry_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar_flurry_activity = (Toolbar) findViewById(R.id.toolbar_flurry_activity);
+        setSupportActionBar(toolbar_flurry_activity);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         LogMe.i(TAG, "Loading full screen ad");
         mFlurryAdInterstitial = new FlurryAdInterstitial(FlurryMainActivity.this, "DCASH1");
@@ -64,27 +68,6 @@ public class FlurryMainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
     FlurryAdInterstitialListener mAdInterstitialListener = new FlurryAdInterstitialListener() {
@@ -142,10 +125,30 @@ public class FlurryMainActivity extends AppCompatActivity {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete
+                            finish();
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
 }

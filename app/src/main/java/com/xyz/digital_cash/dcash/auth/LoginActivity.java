@@ -87,8 +87,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View v) {
 
         if(v == btnResetPass){
-            Intent in = new Intent(this,PaswwordResetActivity.class);
-            startActivity(in);
+            /*Intent in = new Intent(this,PaswwordResetActivity.class);
+            startActivity(in);*/
+
+            underConstruction();
         }
         if(v == btnRegister){
             Intent in = new Intent(this,RegisterActivity.class);

@@ -46,7 +46,7 @@ public class DCASHMainActivity extends BaseActivity
     CardView cardEarnByIvite;
 
     UserPref userPref;
-    CardView cardIncomeFactory;
+    CardView cardIncomeFactory,cardShopEarn,cardMyShop,cardMyNetwork,cardEarningPlan,cardExclusiveOffers,cardEarnMore;
     NavigationView navigationView;
 
     TextView tvUserNmae, tvuserEmail,tvUserReferral, tvUserAvailableBalance,tvUserEarningBalance;
@@ -199,6 +199,24 @@ public class DCASHMainActivity extends BaseActivity
         cardIncomeFactory = findViewById(R.id.cardIncomeFactory);
         cardIncomeFactory.setOnClickListener(this);
 
+        cardShopEarn = findViewById(R.id.cardShopEarn);
+        cardShopEarn.setOnClickListener(this);
+
+        cardMyShop = findViewById(R.id.cardMyShop);
+        cardMyShop.setOnClickListener(this);
+
+        cardMyNetwork = findViewById(R.id.cardMyNetwork);
+        cardMyNetwork.setOnClickListener(this);
+
+        cardEarningPlan = findViewById(R.id.cardEarningPlan);
+        cardEarningPlan.setOnClickListener(this);
+
+        cardExclusiveOffers = findViewById(R.id.cardExclusiveOffers);
+        cardExclusiveOffers.setOnClickListener(this);
+
+        cardEarnMore = findViewById(R.id.cardEarnMore);
+        cardEarnMore.setOnClickListener(this);
+
 
         View headerView = navigationView.getHeaderView(0);
 
@@ -295,6 +313,18 @@ public class DCASHMainActivity extends BaseActivity
         else if( v == cardIncomeFactory){
             Intent in =new Intent(DCASHMainActivity.this,IncomeFactory.class);
             startActivity(in);
+        }else if( v == cardShopEarn){
+           underConstruction();
+        }else if( v == cardMyShop){
+           underConstruction();
+        }else if( v == cardMyNetwork){
+            underConstruction();
+        }else if( v == cardEarningPlan){
+            underConstruction();
+        }else if( v == cardExclusiveOffers){
+            underConstruction();
+        }else if( v == cardEarnMore){
+            underConstruction();
         }
 
     }

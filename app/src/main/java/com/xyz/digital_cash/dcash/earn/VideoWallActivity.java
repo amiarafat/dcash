@@ -72,7 +72,7 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
     //VIDEO WALL
     RewardedVideoAd rAdd;
     private RewardedVideoAd mRewardedVideoAd;
-    Button btnAdmobAd, btnAdColony, btnAppLovin;
+    Button btnAdmobAd, btnAdColony, btnAppLovin, btnFacebook;
     Toolbar toolbar_video_wall;
 
     UserPref userPref;
@@ -80,14 +80,14 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
     TextView tvVideoWallEBalance;
 
     //TEST
-    //final private String APP_ID = "app185a7e71e1714831a49ec7";
+    final private String APP_ID = "app185a7e71e1714831a49ec7";
     //LIVE
-    final private String APP_ID = "appfb36d349893f494aa2";
+    //final private String APP_ID = "appfb36d349893f494aa2";
 
     //TEST
-    //final private String ZONE_ID = "vz1fd5a8b2bf6841a0a4b826";
+    final private String ZONE_ID = "vz1fd5a8b2bf6841a0a4b826";
     //LIVE
-    final private String ZONE_ID = "vz8c7a332fbecd4c4bba";
+    //final private String ZONE_ID = "vz8c7a332fbecd4c4bba";
     final private String ZONE_ID_2 = "vz94e0c51c1d41478ca2";
     final private String ZONE_ID_3 = "vz03959fc621cb459a82";
     final private String ZONE_ID_4 = "vz970a5e0884824e68bf";
@@ -150,29 +150,38 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
                 playAppLovinRewarded();
             }
         });
+
+
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                underConstruction();
+            }
+        });
     }
 
     private void intializeView() {
 
         //START
         // Construct optional app options object to be sent with configure
-        AdColonyAppOptions app_options = new AdColonyAppOptions().setUserID("1");
+        //AdColonyAppOptions app_options = new AdColonyAppOptions().setUserID("1");
 
         // Configure AdColony in your launching Activity's onCreate() method so that cached ads can
         // be available as soon as possible.
-        AdColony.configure(this, app_options, APP_ID,ZONE_ID);
+        AdColony.configure(this, APP_ID,ZONE_ID);
 
         // Optional user metadata sent with the ad options in each request
-        AdColonyUserMetadata metadata = new AdColonyUserMetadata()
+        /*AdColonyUserMetadata metadata = new AdColonyUserMetadata()
                 .setUserAge(26)
                 .setUserEducation(AdColonyUserMetadata.USER_EDUCATION_BACHELORS_DEGREE)
-                .setUserGender(AdColonyUserMetadata.USER_MALE);
+                .setUserGender(AdColonyUserMetadata.USER_MALE);*/
 
         // Ad specific options to be sent with request
         adOptions = new AdColonyAdOptions()
                 .enableConfirmationDialog(true)
-                .enableResultsDialog(true)
-                .setUserMetadata(metadata);
+                .enableResultsDialog(true);
+                //.setUserMetadata(metadata);
 
         // Create and set a reward listener
         AdColony.setRewardListener(new AdColonyRewardListener() {
@@ -242,6 +251,8 @@ public class VideoWallActivity extends BaseActivity implements RewardedVideoAdLi
         tvVideoWallEBalance.setText(userPref.getUserEarningBalance()+" BDT");
         }
 
+
+        btnFacebook = findViewById(R.id.btnFBVideoLoad);
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.xyz.digital_cash.dcash;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -12,7 +14,7 @@ import com.applovin.sdk.AppLovinSdk;
 import com.flurry.android.FlurryAgent;
 import com.xyz.digital_cash.dcash.extras.LogMe;
 
-public class DigitalCash extends Application {
+public class DigitalCash extends MultiDexApplication {
 
     private String TAG = DigitalCash.class.getSimpleName();
     private static RequestQueue requestQueue;
@@ -41,6 +43,7 @@ public class DigitalCash extends Application {
         // NOTE: Use your own Flurry API key. This is left here to make sample review easier
         FlurryAgent.init(this, "5GS9QJPJX5F3DDT8527Z");
         Log.i(TAG, "Flurry SDK initialized");
+
 
     }
 

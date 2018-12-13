@@ -6,9 +6,10 @@ android {
         applicationId "com.xyz.digital_cash.dcash"
         minSdkVersion 18
         targetSdkVersion 27
-        versionCode 7
-        versionName "1.0.7"
+        versionCode 8
+        versionName "1.0.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -46,4 +47,6 @@ dependencies {
     implementation 'com.flurry.android:analytics:11.4.0@aar'
     // Optional - If you want to use the Ads SDK
     implementation 'com.flurry.android:ads:11.4.0@aar'
+
+    implementation 'com.android.support:multidex:1.0.3'
 }
