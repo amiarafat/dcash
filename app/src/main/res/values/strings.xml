@@ -20,4 +20,5 @@
     <string name="title_activity_flurry_main">FlurryMainActivity</string>
     <string name="title_activity_flurry_interstitial_on_exit">FlurryInterstitialOnExitActivity
     </string>
+    <string name="title_activity_vungle_new">VungleNewActivity</string>
 </resources>

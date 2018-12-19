@@ -56,7 +56,7 @@ import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER
 
 public class LookEarnActivity extends BaseActivity {
 
-    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial;
+    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial, btnVungleInterstial;
     private InterstitialAd mInterstitialAdmobAd;
     private Toolbar toolbar_video_wall;
     UserPref userPref;
@@ -295,6 +295,24 @@ public class LookEarnActivity extends BaseActivity {
             }
         });
 
+
+        //VUNGLE
+        btnVungleInterstial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M){
+
+                    Intent in =new Intent(LookEarnActivity.this,VungleNewActivity.class);
+                    startActivity(in);
+
+                }else {
+                    underConstruction();
+                }
+
+            }
+        });
+
     }
 
     private void initializeView() {
@@ -303,10 +321,6 @@ public class LookEarnActivity extends BaseActivity {
         toolbar_video_wall.setTitle("Look and Earn");
         setSupportActionBar(toolbar_video_wall);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        userPref = new UserPref(this);
-
-        tvLookEarnEBalance = findViewById(R.id.tvLookEarnEBalance);
-        tvLookEarnEBalance.setText(userPref.getUserEarningBalance()+" BDT");
 
         //For Test Run
         //MobileAds.initialize(LookEarnActivity.this,"ca-app-pub-3940256099942544~3347511713");
@@ -328,6 +342,10 @@ public class LookEarnActivity extends BaseActivity {
         interstitialFacebookAd = new com.facebook.ads.InterstitialAd(this, PLACEMENT_ID);
 
         btnFlurryInterstial= findViewById(R.id.btnFlurryInterstial);
+
+
+        //VUNGLE
+        btnVungleInterstial =findViewById(R.id.btnVungleInterstial);
     }
 
     @Override
@@ -347,6 +365,14 @@ public class LookEarnActivity extends BaseActivity {
         super.onBackPressed();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        userPref = new UserPref(this);
+
+        tvLookEarnEBalance = findViewById(R.id.tvLookEarnEBalance);
+        tvLookEarnEBalance.setText(userPref.getUserEarningBalance()+" BDT");
+    }
 
     private void getInterstialRewarded() {
 

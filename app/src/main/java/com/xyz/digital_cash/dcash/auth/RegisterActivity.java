@@ -265,8 +265,8 @@ public class RegisterActivity extends BaseActivity {
                         LogMe.d("er::",res);
                         JSONObject obj = new JSONObject(res);
 
-                        String errMsg  = obj.getString("data");
-                        View parentLayout = findViewById(android.R.id.content);
+                        String errMsg  = obj.getString("message");
+                        //View parentLayout = findViewById(android.R.id.content);
                        /* Snackbar.make(parentLayout, errMsg, Snackbar.LENGTH_LONG)
                                 .setAction("CLOSE", new View.OnClickListener() {
                                     @Override

@@ -25,6 +25,9 @@ allprojects {
         maven{
             url  "https://adcolony.bintray.com/AdColony"
         }
+        maven {
+            url 'https://jitpack.io'
+        }
         mavenCentral()
     }
 }

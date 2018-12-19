@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.xyz.digital_cash.dcash"
-        minSdkVersion 18
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 8
         versionName "1.0.8"
@@ -49,4 +49,16 @@ dependencies {
     implementation 'com.flurry.android:ads:11.4.0@aar'
 
     implementation 'com.android.support:multidex:1.0.3'
+
+    //Vungle
+    // Vungle SDK
+    implementation 'com.github.vungle:vungle-android-sdk:6.3.24'
+
+    // Recommended Google Play Services
+    implementation 'com.google.android.gms:play-services-basement:16.0.0'
+
+    // Optional Google Play Services
+    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
 }

@@ -14,89 +14,143 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal">>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="204dp"
-            android:layout_height="72dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="76dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:orientation="horizontal">
 
-
-            <Button
-                android:id="@+id/btnAdmobInterstial"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_semi_rounded_with_purple_stroke"
-                android:text="Admob Interstial "
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="204dp"
-            android:layout_height="72dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp">
 
 
-            <Button
-                android:id="@+id/btnAppLovinInterstial"
+                <Button
+                    android:id="@+id/btnFacebookInterstial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                    android:text="Facebook Interstial "
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_semi_rounded_with_purple_stroke"
-                android:text="AppLovin Interstial "
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="204dp"
-            android:layout_height="72dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp">
 
 
-            <Button
-                android:id="@+id/btnFacebookInterstial"
+                <Button
+                    android:id="@+id/btnFlurryInterstial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                    android:text="Flurry Interstial "
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:orientation="horizontal">
+
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_semi_rounded_with_purple_stroke"
-                android:text="Facebook Interstial "
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="204dp"
-            android:layout_height="72dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp">
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp">
 
 
-            <Button
-                android:id="@+id/btnFlurryInterstial"
+                <Button
+                    android:id="@+id/btnAppLovinInterstial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                    android:text="AppLovin Interstial "
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_semi_rounded_with_purple_stroke"
-                android:text="Flurry Interstial "
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp">
 
-        </android.support.v7.widget.CardView>
+                <Button
+                    android:id="@+id/btnAdmobInterstial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                    android:text="Admob Interstial "
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:orientation="horizontal">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp">
+
+
+                <Button
+                    android:id="@+id/btnVungleInterstial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_semi_rounded_with_purple_stroke"
+                    android:text="Vungle Interstial "
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -142,6 +142,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void dCashLogin(final String mail, final String pass) {
 
+        LogMe.d("LoginRes::","LOGIN");
+
             StringRequest request = new StringRequest(Request.Method.POST, APIConstants.Auth.LOGIN, new Response.Listener<String>() {
 
                 @Override
@@ -189,12 +191,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     hideProgressDialog();
 
                     NetworkResponse response = error.networkResponse;
+
+                    LogMe.d("er::",response.data.toString());
                     if (error instanceof ServerError && response != null) {
                         try {
                             String res = new String(response.data,
                                     HttpHeaderParser.parseCharset(response.headers, "utf-8"));
                             // Now you can use any deserializer to make sense of data
 
+                            LogMe.d("er::",res);
                             int stCode = response.statusCode;
                             View parentLayout = findViewById(android.R.id.content);
 

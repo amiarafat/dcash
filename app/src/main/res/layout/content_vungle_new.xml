@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lineColor" />
+
+        <LinearLayout
+            android:id="@+id/topMenuWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#f9fafc"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/init_button"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/green_button_bg"
+                android:text="Init SDK"
+                android:textColor="@color/buttonText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="124dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/placement_view2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:scaleType="fitCenter">
+
+                <TextView
+                    android:id="@+id/placement_id2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="placement ID 2"
+                    android:visibility="gone" />
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_below="@id/placement_id2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleType="fitCenter">
+
+                    <Button
+                        android:id="@+id/placement_load2"
+                        android:layout_width="144dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="35dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/blue_button_bg"
+                        android:text="load"
+                        android:textColor="@color/buttonText"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/placement_play2"
+                        android:layout_width="144dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="35dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/blue_button_bg"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:text="Vungle Ad play"
+                        android:textColor="@color/buttonText" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
