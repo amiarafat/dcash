@@ -110,6 +110,12 @@
         <activity
             android:name=".earn.VungleNewActivity"
             android:label="@string/title_activity_vungle_new"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".earn.FalconAdActivity"
+            android:label="@string/title_activity_falcon_ad"
+            android:hardwareAccelerated="true"
+            android:configChanges= 	"keyboard|keyboardHidden|orientation|uiMode|screenLayout|screenSize|smallestScreenSize"
             android:theme="@style/AppTheme"></activity>
     </application>
 

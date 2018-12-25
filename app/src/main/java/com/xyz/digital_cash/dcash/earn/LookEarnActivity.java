@@ -56,7 +56,7 @@ import static com.xyz.digital_cash.dcash.api_config.APIConstants.ACCTOKENSTARTER
 
 public class LookEarnActivity extends BaseActivity {
 
-    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial, btnVungleInterstial;
+    Button btnAdmobInterstial,btnAppLovinInterstial, btnFacebookInterstial, btnFlurryInterstial, btnVungleInterstial,btnFalconInterstial;
     private InterstitialAd mInterstitialAdmobAd;
     private Toolbar toolbar_video_wall;
     UserPref userPref;
@@ -313,6 +313,17 @@ public class LookEarnActivity extends BaseActivity {
             }
         });
 
+
+        //Falcon
+        btnFalconInterstial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in =new Intent(LookEarnActivity.this,FalconAdActivity.class);
+                startActivity(in);
+            }
+        });
+
     }
 
     private void initializeView() {
@@ -346,6 +357,9 @@ public class LookEarnActivity extends BaseActivity {
 
         //VUNGLE
         btnVungleInterstial =findViewById(R.id.btnVungleInterstial);
+
+        //Falcon
+        btnFalconInterstial = findViewById(R.id.btnFalconInterstial);
     }
 
     @Override

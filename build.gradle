@@ -29,6 +29,10 @@ allprojects {
             url 'https://jitpack.io'
         }
         mavenCentral()
+
+        maven {
+            url "https://cdn01.static.adfalcon.com/sdk/android/maven"
+        }
     }
 }
 
